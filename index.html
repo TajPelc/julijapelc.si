@@ -8,14 +8,23 @@
 <body>
 <style type="text/css" scoped>
 	body {
-		background: url("/public/img/julija_pelc_profile.jpg") 800px no-repeat;
-		-webkit-background-size: contain;
-		background-size: contain;
 		font-family: 'Open Sans', sans-serif;
 		padding: 0 40px;
 	}
+
+	.content {
+		margin-right: 40px;
+	}
+
+	.row {
+		display: flex;
+		flex-direction: row;
+	}
 	h1 {
 		font-size: 40px;
+	}
+	h3 {
+		font-size: 16px;
 	}
 	.contactInfo > span {
 		font-weight: bold;
@@ -28,36 +37,52 @@
 		display: flex;
 		flex-direction: row;
 	}
+
+	.card {
+		border: 5px solid black;
+		padding: 0 20px;
+		width: 425px;
+	}
 </style>
-<section class="contactInfo">
-	<h1>Julija Pelc</h1>
-	<!--<div class="profileImg">-->
-		<!--<img src="/public/img/julija_pelc_profile.jpg" title="Julija Pelc" width="300px">-->
-	<!--</div>-->
-	<span>HERUKA, Julija Pelc s.p.</span>
-	<dl>
-		<dt>Telefon</dt>
-		<dd>031 389 906</dd>
-	</dl>
-	<dl>
-		<dt>Email</dt>
-		<dd><a href="mailto:julija.pelc@gmail.com">julija.pelc@gmail.com</a></span></dd>
-	</dl>
-	<ul>
-		<li>Certificirana EuroPsy psihologinja za klinicno, zdravstveno in pedagoško svetovanje</li>
-		<li>Specialistka za psihološko svetovanje</li>
-		<li>Pishoterapevtka EAGT, ECP</li>
-		<li>Družinska terapevtka</li>
-	</ul>
-</section>
-<section class="storitve">
-	<h1>Storitve</h1>
-	<ul>
-		<li>individualno, skupinsko svetovanje in psihoterapija</li>
-		<li>premagovanje kriznih situacij, preprečevanje izgorelosti in stresa</li>
-		<li>predavanja in seminarji za izobraževalne, zdravstvene in delovne kolektive</li>
-		<li>supervizije, mentoriranje, kadrovsko svetovanje</li>
-	</ul>
-</section>
+
+<div class="row">
+	<div class="column content">
+		<header>
+			<h1>Julija Pelc</h1>
+		</header>
+		<section class="contactInfo">
+			<ul>
+				<li>Certificirana EuroPsy psihologinja za klinično, zdravstveno in psihologijo izobraževanja</li>
+				<li>Specialistka za psihološko svetovanje</li>
+				<li>Pishoterapevtka EAGT, ECP</li>
+				<li>Družinska terapevtka</li>
+			</ul>
+		</section>
+		<section class="storitve">
+			<h2>Dejavnosti</h2>
+			<ul>
+				<li>individualno, skupinsko svetovanje in psihoterapija</li>
+				<li>premagovanje kriznih situacij, preprečevanje izgorelosti in stresa</li>
+				<li>predavanja in seminarji za izobraževalne, zdravstvene in delovne kolektive</li>
+				<li>supervizije, mentoriranje, kadrovsko svetovanje</li>
+			</ul>
+		</section>
+
+		<h3>HERUKA psihološke storitve in izobraževanja, Julija Pelc s.p.</h3>
+		<div class="card">
+			<dl>
+				<dt>Telefon</dt>
+				<dd>031 389 906</dd>
+			</dl>
+			<dl>
+				<dt>Email</dt>
+				<dd><a href="mailto:julija.pelc@gmail.com">julija.pelc@gmail.com</a></span></dd>
+			</dl>
+		</div>
+	</div>
+	<div class="column">
+		<img width="410px" src="/public/img/julija_pelc_profile.jpg" style="border: 10px solid black;">
+	</div>
+</div>
 </body>
 </html>
