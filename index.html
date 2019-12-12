@@ -128,16 +128,22 @@
 		}
 
 		.basic-info {
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			margin-top: 20px;
+			display: grid;
+			grid-template-columns: 1fr;
+			justify-items: center;
+			grid-gap: 0;
 		}
 
 		.basic-info-content {
 			width: 300px;
-			margin-top: 20px;
-			padding: 20px;
+			padding: 20px 20px 0 20px;
 			background: #fff;
+		}
+
+		.basic-info-content.dejavnosti {
+			padding-top: 0;
+			padding-bottom: 20px;
 		}
 
 		.naslovka {
@@ -213,7 +219,6 @@
 		dl {
 			display: grid;
 			grid-gap: 10px;
-			flex-direction: row;
 		}
 
 		.card {
@@ -230,6 +235,14 @@
 
 		.card a {
 			color: #ff1cad;
+		}
+
+		.card a:hover {
+			color: #ac1675;
+		}
+
+		.card a:active {
+			color: #360726;
 		}
 
 		.header {
@@ -341,6 +354,20 @@
 		.zapri:active {
 			background: #1c160e;
 		}
+
+		@media screen and (min-width: 720px) {
+			.basic-info {
+				grid-gap: 10px;
+				justify-content: space-between;
+				grid-template-columns: 1fr 1fr;
+				margin: 20px auto 0 auto;
+				max-width: 760px;
+			}
+
+			.basic-info-content {
+				padding: 20px !important;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -383,22 +410,23 @@
 				</dl>
 			</div>
 		</section>
+	</div>
+		<div class="basic-info-content dejavnosti">
+			<section class="storitve">
+				<h2>Dejavnosti</h2>
+				<ul id="dejavnosti">
+	<!--				<li>individualno, skupinsko svetovanje in psihoterapija</li>-->
+	<!--				<li>premagovanje kriznih situacij, preprečevanje izgorelosti in stresa</li>-->
+	<!--				<li>predavanja in seminarji za izobraževalne, zdravstvene in delovne kolektive</li>-->
+	<!--				<li>supervizije, mentoriranje, kadrovsko svetovanje</li>-->
 
-		<section class="storitve">
-			<h2>Dejavnosti</h2>
-			<ul id="dejavnosti">
-<!--				<li>individualno, skupinsko svetovanje in psihoterapija</li>-->
-<!--				<li>premagovanje kriznih situacij, preprečevanje izgorelosti in stresa</li>-->
-<!--				<li>predavanja in seminarji za izobraževalne, zdravstvene in delovne kolektive</li>-->
-<!--				<li>supervizije, mentoriranje, kadrovsko svetovanje</li>-->
+					<li data-type="psihoterapija">Psihoterapija in svetovanje</li>
+					<li data-type="predavanja">Predavanja in serminarji</li>
+					<li data-type="intervencije">Krizne intervencije</li>
+					<li data-type="supervizija">Supervizija</li>
 
-				<li data-type="psihoterapija">Psihoterapija in svetovanje</li>
-				<li data-type="predavanja">Predavanja in serminarji</li>
-				<li data-type="intervencije">Krizne intervencije</li>
-				<li data-type="supervizija">Supervizija</li>
-
-			</ul>
-		</section>
+				</ul>
+			</section>
 	</div>
 </div>
 
