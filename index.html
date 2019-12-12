@@ -2,325 +2,555 @@
 <html lang="sl">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Julija Pelc s.p. - Psihološko svetovanje HERUKA</title>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#dejavnosti li').click(function (event) {
+				$('.overlay').fadeIn();
+				$("." + $(this).data('type')).fadeIn();
+			});
+
+			$('.zapri, .overlay').click(function (event) {
+				$('.overlay-content').fadeOut();
+				$('.overlay').fadeOut();
+			});
+		});
+	</script>
+	<style type="text/css">
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed,
+		figure, figcaption, footer, header, hgroup,
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure,
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		/** End CSS Reset **/
+		body {
+			font-size: 14px;
+			font-family: Georgia, serif;
+			background: #fff1f7;
+		}
+
+		p {
+			font-size: 1em; /* 14px */
+			line-height: 1.7143em; /* 24px */
+			margin: 0 0 1.7143em 0;
+		}
+		/* 24px - The quick brown fox jumps over the lazy dog */
+		h1 {
+			font-size: 1.7143em; /* 24px */
+			line-height: 1.0000em; /* 24px */
+			margin-bottom: 1.0000em;
+		}
+		/* 22px - The quick brown fox jumps over the lazy dog */
+		h2 {
+			font-size: 1.5714em; /* 22px */
+			line-height: 1.2em; /* 24px */
+			margin-bottom: 1.0909em;
+		}
+		/* 20px - The quick brown fox jumps over the lazy dog */
+		h3 {
+			font-size: 1.4286em; /* 20px */
+			line-height: 1.2000em; /* 24px */
+			margin-bottom: 1.2000em;
+			font-weight: bold;
+		}
+		/* 18px - The quick brown fox jumps over the lazy dog */
+		h4 {
+			font-size: 1.2857em; /* 18px */
+			line-height: 1.3333em; /* 24px */
+			margin-bottom: 1.3333em;
+		}
+		/* 16px - The quick brown fox jumps over the lazy dog */
+		h5 {
+			font-size: 1.1429em; /* 16px */
+			line-height: 1.5000em; /* 24px */
+			margin-bottom: 1.5000em;
+		}
+		/* 14px - The quick brown fox jumps over the lazy dog */
+		h6 {
+			font-size: 1.0000em; /* 14px */
+			line-height: 1.7143em; /* 24px */
+			margin-bottom: 1.7143em;
+		}
+
+
+		body {
+			font-family: 'Open Sans', sans-serif;
+			color: #684B5F;
+		}
+
+		.basic-info {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.basic-info-content {
+			width: 300px;
+			margin-top: 20px;
+			padding: 20px;
+			background: #fff;
+		}
+
+		.naslovka {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 10px;
+		}
+
+		.naslovka .naslov {
+			display: grid;
+			grid-gap: 10px;
+			justify-items: left;
+		}
+
+		.naslovka .naslov > * {
+			padding: 0;
+			margin: 0;
+		}
+
+		.naslovka .name {
+			font-weight: bold;
+			font-size: 20px;
+		}
+
+		.profilna {
+			width: 100%;
+		}
+
+		.basic-info ul.overview {
+			list-style-type: square;
+			margin: 20px 0 10px 20px;
+		}
+
+		.basic-info ul.overview li {
+			margin-bottom: 16px;
+		}
+
+		.contactInfo > span {
+			font-weight: bold;
+		}
+
+		.storitve {
+		}
+
+		.storitve ul {
+			margin-left: 0;
+			list-style-type: none;
+			display: grid;
+			grid-gap: 5px;
+		}
+
+		.storitve ul li {
+			font-weight: bold;
+			padding: 20px 10px;
+			background: #ffe8e6;
+			cursor: pointer;
+
+		}
+
+		.storitve ul li:hover {;
+			background: hotpink;
+		}
+
+		.storitve ul li:active {
+			color: #fff;
+			background: deeppink;
+		}
+
+		dl > dt {
+			width: 70px;
+			font-weight: bold;
+		}
+		dl {
+			display: grid;
+			grid-gap: 10px;
+			flex-direction: row;
+		}
+
+		.card {
+			display: grid;
+			grid-column-gap: 10px;
+			align-items: center;
+			grid-template-columns: 1fr 3fr 3fr;
+			margin: 20px 0;
+		}
+
+		.card > img {
+			width: 100%;
+		}
+
+		.card a {
+			color: #ff1cad;
+		}
+
+		.header {
+			background: url("/public/img/sakura.jpg?3") no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 6em;
+			display: flex;
+			align-items: center;
+		}
+
+		.motto {
+			font-family: 'Dancing Script', cursive;
+			font-size: 1.8em;
+			color: #fff;
+			margin: 0 auto;
+		}
+
+		.title {
+			font-family: 'Dancing Script', cursive;
+			font-weight: normal;
+			font-size: 68px;
+			padding: 0;
+		}
+
+		.grey {
+			/*background: #6eb5c0;*/
+			background: #FFDAF4;
+			color: #684B5F;
+		}
+
+		a {
+			color: #6EB4BF;
+		}
+
+		/*.row {*/
+		/*	display: flex;*/
+		/*	flex-direction: row;*/
+		/*	justify-content: space-around;*/
+		/*	padding-bottom: 20px;*/
+		/*}*/
+
+		/*.column {*/
+		/*	margin: 10px;*/
+		/*	width: 200px;*/
+		/*	padding: 10px 20px;*/
+		/*	background: #F1F7F8;*/
+		/*}*/
+
+		.column > h3 {
+			text-align: center;
+		}
+
+		.column > p {
+			font-size: 14px;
+		}
+
+		.smallist > div {
+			font-size: 12px;
+		}
+
+		.smallist li {
+			padding: 4px 0;
+		}
+
+		.overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 192, 203, 0.8);
+			overflow: auto;
+		}
+
+		.overlay-content {
+			display: none;
+			position: absolute;
+			padding: 60px 20px 20px 20px;
+			width: 300px;
+			margin: auto auto;
+			z-index: 1000;
+			left: 0;
+			right: 0;
+			bottom: 20px;
+			background: #fff;
+			box-shadow: #755859 1px 1px 4px;
+		}
+
+		.zapri {
+			background: #3d3224;
+			color: #fff;
+			cursor: pointer;
+			padding: 10px;
+			font-size: 18px;
+			right: 2px;
+			top: 2px;
+			width: calc(100% - 24px);
+			position: absolute;
+		}
+		.zapri:hover {
+			background: #36261d;
+		}
+		.zapri:active {
+			background: #1c160e;
+		}
+	</style>
 </head>
 <body>
-<style type="text/css" scoped>
-	body {
-		font-family: 'Open Sans', sans-serif;
-		padding: 0;
-		margin: 0;
-		color: #006c84;
-	}
+<div class="overlay"></div>
 
-	h1 {
-		font-size: 40px;
-	}
-
-	h3 {
-		font-size: 16px;
-	}
-	.contactInfo > span {
-		font-weight: bold;
-	}
-	dl > dt {
-		font-weight: bold;
-		min-width: 60px;
-	}
-	dl {
-		display: flex;
-		flex-direction: row;
-	}
-
-	.card {
-		border: 10px solid #684B5F;
-		/*background: #6eb5c0;*/
-		/*color: #fff;*/
-		padding: 0 20px;
-	}
-
-	.card a {
-		color: #ff1cad;
-	}
-
-	.header {
-		font-size: 38px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-
-	.motto {
-		font-family: 'Dancing Script', cursive;
-		font-size: 48px;
-	}
-
-	.title {
-		font-family: 'Dancing Script', cursive;
-		font-weight: normal;
-		font-size: 68px;
-		padding: 0;
-	}
-
-	.body {
-		padding: 40px;
-	}
-
-	.grey {
-		/*background: #6eb5c0;*/
-		background: #FFDAF4;
-		color: #684B5F;
-	}
-
-	a {
-		color: #6EB4BF;
-	}
-
-	.row {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		padding-bottom: 20px;
-	}
-
-	.column {
-		margin: 10px;
-		width: 200px;
-		padding: 10px 20px;
-		background: #F1F7F8;
-	}
-
-	.column > h3 {
-		text-align: center;
-	}
-
-	.column > p {
-		font-size: 14px;
-	}
-
-	.smallist > div {
-		font-size: 12px;
-	}
-
-	.smallist li {
-		padding: 4px 0;
-	}
-
-	.light {
-		background: #eee;
-		color: #777;
-	}
-
-	.body {
-		width: 500px;
-		margin: 80px auto;
-	}
-
-	.logo {
-		float: left;
-		width: 100px;
-		margin-top: 8px;
-		margin-right: 10px;
-	}
-</style>
 
 <header class="header">
-	<h1 class="title">Julija Pelc</h1>
-	<div style="width: 100%; background: #eee; text-align: center; padding: 0; height: 365px;"><img width="300" src="/public/img/julija_pelc_profile.jpg?2"></div>
-	<p class="motto">Ne bojuj se z vetrom, ujemi ga v jadra <span style="margin-left: 19px">:)</span></p>
-
-	<!--<img width="410px" src="/public/img/julija_pelc_profile.jpg" style="border: 10px solid black;">-->
+	<p class="motto">Ne bojuj se z vetrom, ujemi ga v jadra :)</p>
 </header>
 
-<div class="row">
-	<div class="column">
-		<h3>PREDAVANJA IN SEMINARJI</h3>
+<div class="basic-info">
+	<div class="basic-info-content">
+		<div class="naslovka">
+			<div class="naslov">
+				<h1 style="font-weight: bold;">HERUKA,</h1>
+				<h2>psihološke storitve in izobraževanje,</h2>
+				<h1 class="name">Julija Pelc s.p.</h1>
+			</div>
+			<img class="profilna" src="/public/img/julija_pelc_profile.jpg" alt="HERUKA, Julija Pelc s.p. logotip">
+		</div>
+		<section class="contactInfo">
+			<ul class="overview">
+				<li>Certificirana EuroPsy psihologinja za klinično, zdravstveno in psihologijo izobraževanja</li>
+				<li>Specialistka za psihološko svetovanje</li>
+				<li>Psihoterapevtka EAGT, ECP</li>
+				<li>Družinska terapevtka</li>
+			</ul>
+		</section>
 
-		<p>Strokovna, tematska psihološka predavanja in delavnice v skladu s potrebami naročnika – obvladovanje konfliktnih in stresnih situacij, preprečevanje izgorelosti, gradnja uspešnega tima in umetnost vodenja zaposlenih</p>
-		<p>Predavanja in delavnice za starše, partnerje in družine</p>
-		<p>Krajši ali daljši seminarji za strokovne delavce v vzgoji in izobraževanju, zdravstvu…</p>
-	</div>
+		<section class="kontakt">
+			<div class="card">
+				<img src="/public/img/lotos.png" alt="HERUKA">
+				<dl>
+					<dt>Telefon</dt>
+					<dd><a href="tel:+38631389906">031 389 906</a></dd>
+				</dl>
+				<dl>
+					<dt>Email</dt>
+					<dd><a href="mailto:julija.pelc@gmail.com">julija.pelc@gmail.com</a></dd>
+				</dl>
+			</div>
+		</section>
 
-	<div class="column">
-		<h3>PSIHOTERAPIJA IN PSIHOLOŠKO SVETOVANJE</h3>
+		<section class="storitve">
+			<h2>Dejavnosti</h2>
+			<ul id="dejavnosti">
+<!--				<li>individualno, skupinsko svetovanje in psihoterapija</li>-->
+<!--				<li>premagovanje kriznih situacij, preprečevanje izgorelosti in stresa</li>-->
+<!--				<li>predavanja in seminarji za izobraževalne, zdravstvene in delovne kolektive</li>-->
+<!--				<li>supervizije, mentoriranje, kadrovsko svetovanje</li>-->
 
-		<p>Prepoznavanje jedrnih kvalitet in spreminjanje neučinkovitih osebnostnih vzorcev</p>
-		<p>Skrb zase</p>
-		<p>Odpravljanje težav na področju čustvovanja, samozaupanja</p>
-		<p>Večje zavedanje sebe in prepoznavanje življenjskih vlog</p>
-		<p>Podpora pri doseganju ciljev in ustvarjanju bolj kakovostnih odnosov</p>
-		<p>Ujeti lasten tok življenja, navdiha, volje in vizije</p>
-	</div>
+				<li data-type="psihoterapija">Psihoterapija in svetovanje</li>
+				<li data-type="predavanja">Predavanja in serminarji</li>
+				<li data-type="intervencije">Krizne intervencije</li>
+				<li data-type="supervizija">Supervizija</li>
 
-	<div class="column">
-		<h3>KRIZNE INTERVENCIJE</h3>
-
-		<p>Psihološka prva pomoč</p>
-		<p>Razbremenilni pogovori za strokovnjake in druge</p>
-		<p>Podpora pri soočanju z življenjskimi spremembami - smrt, spolna zloraba, razveza in druge travmatske izkušnje</p>
-		<p>Mobing</p>
-		<p>Hitrejše doseganje stabilnosti in uspešnega delovanja v vsakdanjem življenju</p>
-	</div>
-
-	<div class="column">
-		<h3>SUPERVIZIJA</h3>
-
-		<p>Supervizija za strokovne delavce v vzgoji in izobraževanju – vrtci, šole, dijaški domovi, vzgojni zavodi…</p>
-		<p>Supervizija za zdravstvene ustanove in druga delovna okolja – javna uprava, nevladne organizacije, domovi za starešje…</p>
-		<p>Mentoriranje psihologov začetnikov</p>
-		<p>Svetovanje strokovnjakom ob aktualnih problemih</p>
-		<p>Koučing in kadrovsko svetovanje</p>
-	</div>
-</div>
-<div class="body grey">
-	<img class="logo" src="/public/img/lotos.png">
-	<h2>HERUKA psihološke storitve in izobraževanje, Julija Pelc s.p.</h2>
-	<section class="contactInfo">
-		<ul>
-			<li>Certificirana EuroPsy psihologinja za klinično, zdravstveno in psihologijo izobraževanja</li>
-			<li>Specialistka za psihološko svetovanje</li>
-			<li>Psihoterapevtka EAGT, ECP</li>
-			<li>Družinska terapevtka</li>
-		</ul>
-	</section>
-	<section class="storitve">
-		<h2>Dejavnosti</h2>
-		<ul>
-			<li>individualno, skupinsko svetovanje in psihoterapija</li>
-			<li>premagovanje kriznih situacij, preprečevanje izgorelosti in stresa</li>
-			<li>predavanja in seminarji za izobraževalne, zdravstvene in delovne kolektive</li>
-			<li>supervizije, mentoriranje, kadrovsko svetovanje</li>
-		</ul>
-	</section>
-
-	<h2>Kontakt</h2>
-	<div class="card">
-		<dl>
-			<dt>Telefon</dt>
-			<dd>031 389 906</dd>
-		</dl>
-		<dl>
-			<dt>Email</dt>
-			<dd><a target="_blank" href="mailto:julija.pelc@gmail.com">julija.pelc@gmail.com</a></dd>
-		</dl>
+			</ul>
+		</section>
 	</div>
 </div>
-<div class="body light smallist">
-	<h2>OBJAVE IN STROKOVNA SODELOVANJA</h2>
-	<div>
-		<strong>Nekatera aktivna sodelovanja in objave</strong>
-		<ol>
-			<li><a target="_blank" href="http://www.telefon-samarijan.si/glasilo/Samarijan_2015_01_ZaSpletnoStran.pdf">Pelc, J., O superviziji. Samarijan. Letnik XIII, št.1 (2015), Ljubljana.</a>
-			<li>Vilotič, A., Beznik, L., Pelc, J., Šolske ocene niso samo številke. Medicina-ljudje. Št.6. dec.-feb. (2015/2016).</li>
-			<li><a target="_blank" href="http://www.eduvision.si/o-mednarodni-konferenci/program-konference">Pelc, J., Supervizija: pot osebnostne rasti do profesionalne moči. Mednarodna konferenca EDUvision, Ljubljana, (27. 11. 2014).</a></li>
-			<li>Pelc, J., Klemenčič Rozman, M.,M:, Mramor, M., Verbnik Dobnikar, T., Resnična srečanja. V »Vzgoja v očeh psihoterapevta« - Pogledi in praksa različnih pristopov. Uredila Lojk, B., Evropski inštitut za realitetno terapijo. Ljubljana, 2014.</li>
-			<li>Strokovno srečanje: Navihani Brain. Kino Dvor. Ljubljana, 2014.   https://http://www.youtube.com/watch?v=W4-Vx2BFRdE</li>
-			<li><a target="_blank" href="http://www.zbornica-zveza.si/sl/strokovna-srecanja/otrok-druzina-bolezen-zdravstveni-delavci-skrb-za-druge-skrb-zase">Pelc, J., Mladostnik na prepihu. Strokovni posvet Otrok, družina, bolezen in zdravstveni delavci - skrb za druge in skrb. Ljubljana, 30. 5. 2014.</a></li>
-			<li>Pelc, J., Žarek dobrote: članek na tematiko razumevanja in ravnanja v primeru nasilja, 2014:
-				<ul>
-					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2014/08/Zarek-september-2014-web.pdf">Zarek-september</a></li>
-					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2014/10/Zarek-oktober-2014-web.pdf">Zarek-oktober</a></li>
-					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2014/11/Zarek-november-2014-web.pdf">Zarek-november</a></li>
-					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2012/02/Zarek-december-2014-web.pdf">Zarek-december</a></li>
-				</ul>
-			</li>
-			<li><a target="_blank" href="http://www.solski-razgledi.com/forum2/read.php?1,8007">Pelc, J., Naj sanje živijo. Šolskih razgledi. (4. 10. 2013).</a></li>
-			<li><a target="_blank" href="http://www.delo.si/druzba/zdravje/samo-ljubezen-ne-ozdravi-motenj-hranjenja.html">Pelc, J., Prijatelj, M.,  Samo ljubezen ne ozdravi motenj hranjenja. Delo. (8. 4. 2013).</a></li>
-			<li>Pelc, J., Predgovor in dodatek k prevodu - Middleton, K., Smith, J., V Prvi koraki na poti k osvoboditvi. Ognjišče. Nova Gorica, 2012.</li>
-			<li> <a target="_blank" href="http://www.klinicnapsihologija.si/klip_mozaik_v_zrcalu_narave">Pelc, J., Mozaik v zrcalu narave. Klip, št.8 (2012). Ljubljana.</a></li>
-			<li><a target="_blank" href="http://www.ricnm.si/media/objave/dokumenti/2013/Zbornik_prispevkov_2012_celoten.pdf">Pelc, J., Prepoznavanje in preseganje težav na področju čustvovanja in motenj hranjenja – vloga strokovnih delavcev in pomen zaščitnih dejavnikov. V Več virov – več možnosti. Zavod za zdravstveno varstvo Ravne, Ministrstvo za zdravje. Slovenj Gradec, 2012.</a></li>
-			<li>Pelc, J., Okrogla miza: Tesnoba in depresija sodobnega časa. 9. študijski dnevi SKZP - Tesnobnost, depresija in psihoterapija. Zreče, 2011.</li>
-			<li>Pelc, J., Supervizija v vzgoji in izobraževanju. Mednarodni kongres psihologov Slovenije. Ljubljana, 2010.</li>
-			<li>Pelc, J., Nebodigatreba.  8. študijski dnevi SKZP Psihoterapija otrok in mladostnikov. Rogla, 2010.</li>
-			<li><a target="_blank" href="http://www.zdravjevsoli.si/index.php?option=com_content&view=category&layout=blog&id=49&Itemid=85">Pelc, J. in drugi, Modelne ure s področja alkohola in tobaka. IVZ Ljubljana, 2010.</a></li>
-			<li>Pelc, J., Programi za otroke in mlade na področju čustvovaja – MKZ Rakitna. Konferenca o spolnem nasilju nad otroki. Tacen, 2010.</li>
-			<li>Pelc, J., Mozaik soustvarjanja skozi čas. Zdrava šola. Knjižnica Osnovna šola Janka Kersnika Brdo Lukovica, Brdo, 2010.</li>
-			<li><a target="_blank" href="http://www.mizs.gov.si/fileadmin/mizs.gov.si/pageuploads/podrocje/Strukturni_skladi/Gradiva/Gradivo_Strukturni_skladi_Usposabljanje_SDK_Brez_spopada.pdf">Pelc, J., Ravnanje strokovnih delavcev pri delu z otroki z manj sprejemljivimi oblikami vedenja. V Brez spopada: kultur, spolov, generacij. Urednica Tašner, V., Pedagoška fakulteta. Ljubljana, 2009.</a></li>
-			<li><a target="_blank" href="http://www.ds-rs.si/sites/default/files/dokumenti/zbornik_otrok_v_vrtincu_odlocitev_institucij.pdf">Pelc, J., Ločitev, vpliv na šolajočega otroka. V Otrok v vrtincu odločitev institucij. Uredil Zoltan, J., Tratnik Volasko, M., Zupanec, N., Zbornik referatov in razprav. DS Republike Slovenije. Ljubljana, 2009/1.</a></li>
-			<li>Pavšič, M., Pelc, Kurnik-Žugman, B., 9. Dnevi slovenskih psihologov. Psihološka obzorja. Letn. 18, št. 2 (2009), str. 109-119.</li>
-			<li>Pavšič, M., Pelc, J., Cvetek, R., 8. dnevi psihologov. Psihološka obzorja. Letnik 17, št. 2 (2008), str. 121-129.</li>
-			<li><a target="_blank" href="http://www.worldcat.org/identities/np-pelc,%20julija/">Pelc, J. »Štirioglate glave« in bolečine v ušesih. RTV SLO/MMC. Ljubljana, 8. 10. 2008.</a></li>
-			<li>Pelc J., Od samopodobe k identiteti, V žarišču: Samopodoba in samospoštovanje, Vzgoja 32, (2006, VIII), str. 5-8.</li>
-			<li><a target="_blank" href="http://www.nijz.si/sites/http://www.nijz.si/files/publikacije-datoteke/proste_roke_-_cista_pljuca_prirocnik.pdf">Pelc, J., Čibej Žagar, B., Vodenje skupin in komunikacijske spretnosti. V Bajt, M. Proste roke, čista pljuča. Priročnik za opuščanje kajenja za mladostnike. Priročnik za izvajalce. IVZ. Ljubljana, 2005.</a></li>
-			<li>Pelc, J., Med avtonomnostjo in sodelovanjem, kritičnostjo in kritizerstvom. Razredni pouk, Letn. 8, št. 1 (2005), str. 27-29.</li>
-			<li>Pelc, J., Vizija šole: izziv, kreativnost in steze sodelovanja. Zdrava šola, št. 1 (2005), str. 13-20.</li>
-			<li><a target="_blank" href="http://www..arnes.si/~icerar/Kobolt_Metode%20in%20tehnike%20supervizije.pdf">Pelc, J., Evalvacija – pomen in metodična izpeljava v supervizijskem procesu. V Kobolt, A., Metode in tehnike supervizije. Pedagoška fakulteta. Ljubljana, 2004.</a></li>
-			<li>Pelc, J., Pomen skupinskega sodelovanja pri razreševanju problemov rejencev. V Praper, P., editor. Moč: transfer in kontratransfer v psihoterapiji. Zbornik prispevkov 6. Bregantovi dnevi, (1998 okt. 15-18). Portorož. Združenje psihoterapevtov Slovenije. Ljubljana, 2004.</li>
-			<li>Pelc, J., Vodenje supervizije v paru. Mednarodni kongres Izzazovi supervizije u jugoistočnoj Europi: hrcak.srce.hr/file/567, 4.- 6. ožuljak. Opatija, 2004.</li>
-			<li>Pelc, J., Kaj lahko stori šola ob zlorabi?, V žarišču: Bolečina spolne zlorabe, Vzgoja 20, (2003, V), str. 10-12.</li>
-			<li>Pelc, J., Med poletjem in supervizijo, Biti vzgojitelj, Vzgoja 18, (2003, V),  str. 29-31.</li>
-			<li>Pelc, J., Alkohol in mladi, Vzgojna področja, Vzgoja 15, (2002, IV), str. 39-41.</li>
-			<li>Pelc, J., Sodelovanje s starši, Razredništvo, Vzgoja 13, (2002, IV), str. 29-32.</li>
-			<li><a target="_blank" href="http://www.zdravjevsoli.si/alkohol/ucitelji.htm">Pelc, J., Zelenjak, N., Mladi in alkohol. Priročnik za učitelje osnovnih šol. IVZ RS. Ljubljana, 2001.</a></li>
-			<li>Pelc, J., Ko ostane samo še upanje. V T. Samec in V. Slodnjak (ur.), Psihične travme v otroštvu in adolescenci (str. 7 – 27). Ljubljana: Kolaborativni center Svetovne zdravstvene organizacije za duševno zdravje otrok pri Svetovalnem centru za otroke, mladostnike in starše: Inštitut za psihologijo osebnosti. 2001.</li>
-			<li>Pelc, J., Bilten zdrave šole, Osnovna šola Janka Kersnika, Brdo pri Lukovici. Brdo, 2000.</li>
-			<li>Pelc, J., Supervizija za strokovne delavce v vzgoji in izobraževanju, Didakta, letn. 10, št. 54-55 (september/oktober 2000), str. 9-10</li>
-			<li>Pelc, J., O kontinuumu supervizije, svetovanja in terapije. Socialna pedagogika 1997/3 - kazalo in povzetki - zzsp.org http://www.zzsp.org/revija/sp1997_3.htm</li>
-			<li>Pelc, J: Komunikacijski aspekti zdrave šole. Otrok in družina, 43, št. 5 (maj 1994), str. 13</li>
-		</ol>
-	</div>
-	<div>
-		<strong>Izobraževanja strokovnih delavcev:</strong>
-		<ul>
-			<li>Pelc, J., Dolgoletno izvajanje supervizijskih procesov, vodnje intervizij in individualnega koučinga za strokovne delavce v VIZ in zdravstvu, od 1998 -</li>
-			<li>Pelc, J., Stres in travmatska izkušnja. Posredovanje v primeru naravnih nesreč in drugih travmatskih dogodkih. Prva psihosocilna pomoč. RK. Ljubljana, 2015.</li>
-			<li>Pelc, J., Spolna zloraba otrok in ukrepanje strokovnega delavca CSD ob sumu spolne zlorabe – seminarji za strokovne delavce SCDS, VIZ, od 2010 –</li>
-			<li>Pelc, J., Spolna zloraba  in obravnava otrok in mladostnikov v rejništvu – seminarji za rejnike, SCSD, od 2010 –</li>
-			<li>Pelc, J., Moteči, nevidni in travmatizirani učenci, DKPS, od 2010 –</li>
-			<li>Pelc, J., Poslušati ali svetovati? Ljubljana, 2014.</li>
-			<li>Pelc, J., Otroci in mladostniki s čustvenimi težavami in motnjami hranjenja. Svetovalni delavci srednjih šol. Ljubljana, 2013.</li>
-			<li>Pelc, J., Žorž, B., Vzpostavljanje kakovostnega stika in sodelovalnega odnosa z otroki, mladostniki, starši, sodelavci. MKZ Rakitna. Rakitna, 2011.</li>
-			<li>Pelc, J., Stari starši: cvet ali trn v peti. MKZ Rakitna. Rakitna, 2011.</li>
-			<li>Pelc, J., Geštalt terapija v svetovalnem procesu. Novi trendi v informiranju in svetovanju za mlade pred izbiro srednje šole. Center za poklicno informiranje. Ljubljana, 2011.</li>
-			<li>Pelc, J., Verbnik Dobnikar, T., Maska v superviziji. Društvo za supervizijo. Kranjska Gora, 2010.</li>
-			<li>Pelc, J., Vizija šole, pot do ljudi. OŠ Janka Kersnika Brdo in 50. mednarodni kongres učiteljev. Maribor, 2004.</li>
-			<li>Pelc, J., Verbnik Dobnikar, T., Razrednik v osnovni šoli. OŠ Janka Kersnika Brdo pri Lukovici. Brdo, 2006.</li>
-			<li>Pelc, J., Tišina. Študijski dnevi Društva za supervizijo. Gozd Martuljek, 2004.</li>
-		</ul>
-	</div>
 
-	<div>
-		<strong>Med drugim tudi:</strong>
-		<ul>
-			<li>Kakovostna komunikacija v zdravstvu med strokovnim delavcem in pacientom</li>
-			<li>Skrb zase, preprečevanje in uravnavanje stresnih situacij</li>
-			<li>Razvijanje pozitivne samopodobe in občutka lastne vrednosti</li>
-			<li>Krepitev otrokove osebnosti</li>
-			<li>Vloga, naloga in položaj svetovalnega delavca</li>
-			<li>Kakovostno sodelovanje šole s starši</li>
-			<li>Učinkovito postavljanje meja</li>
-			<li>Veščine sporazumevanja in asertivnosti</li>
-			<li>Na vrtiljaku čustev – prepoznavanje in (samo)uravnavanje</li>
-			<li>Poslušati ali svetovati</li>
-			<li>Obdobje mladostništva</li>
-			<li>Razvoj tima</li>
-			<li>Družina, partnerstvo, starševstvo…</li>
-		</ul>
-	</div>
+<div class="overlay-content psihoterapija">
+	<div class="zapri">zapri</div>
 
-	<div>
-		<strong>Prisotnost v medijih:</strong>
-		<ul>
-			<li>Vrtačnik, K., Pelc, J., Naša prepričanja nas sooblikujejo, predsodki pa razmejujejo. Ceh. Letnik 5, (2015), št.11., str.4-7</li>
-			<li>Vrtačnik, K., Pelc, J., Ličenje za volanom je smrtno nevarno. Nedelo. (16. 11. 2011).</li>
-			<li>Vrtačnik, K., Pelc, J., Razumeti stiske, žalost, strahove otrok. Revija Ona. (1. 6. 2009).</li>
-			<li>Pelc, J., Čakš, A., Otrok v stiski ne potrebuje pridige, ampak pomoč: pred začetkom pouka. Delo, leto 49, št. 201 (1. sep. 2007).</li>
-			<li><a target="_blank" href="http://www.rtvslo.si/turbulenca/novica/209">Življenje z otrokom s posebnimi potrebami, TV LJubljana, 22. 1. 2014.</a></li>
-			<li>
-				Radio Prvi - leto 2015
-				<ul>
-					<li>Svetovalni servis: Izbira obšolskih dejavnosti in prosti čas šolarjev, 7. 9. 2015</li>
-					<li>Prvi na obisku – Center varne vožnje Vransko, 4. 6. 2015</li>
-					<li>O edincih in bratih v nedeljskem jutru, 26. 5. 2015</li>
-					<li>Stari starši: oddaja Med štirimi stenami, 23. 3. 2015</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+	<h3>PSIHOTERAPIJA IN PSIHOLOŠKO SVETOVANJE</h3>
+
+	<p>Prepoznavanje jedrnih kvalitet in spreminjanje neučinkovitih osebnostnih vzorcev</p>
+	<p>Skrb zase</p>
+	<p>Odpravljanje težav na področju čustvovanja, samozaupanja</p>
+	<p>Večje zavedanje sebe in prepoznavanje življenjskih vlog</p>
+	<p>Podpora pri doseganju ciljev in ustvarjanju bolj kakovostnih odnosov</p>
+	<p>Ujeti lasten tok življenja, navdiha, volje in vizije</p>
 </div>
+
+<div class="overlay-content predavanja">
+	<div class="zapri">zapri</div>
+
+	<h3>PREDAVANJA IN SEMINARJI</h3>
+
+	<p>Strokovna, tematska psihološka predavanja in delavnice v skladu s potrebami naročnika – obvladovanje konfliktnih in stresnih situacij, preprečevanje izgorelosti, gradnja uspešnega tima in umetnost vodenja zaposlenih</p>
+	<p>Predavanja in delavnice za starše, partnerje in družine</p>
+	<p>Krajši ali daljši seminarji za strokovne delavce v vzgoji in izobraževanju, zdravstvu…</p>
+</div>
+
+<div class="overlay-content intervencije">
+	<div class="zapri">zapri</div>
+
+	<h3>KRIZNE INTERVENCIJE</h3>
+
+	<p>Psihološka prva pomoč</p>
+	<p>Razbremenilni pogovori za strokovnjake in druge</p>
+	<p>Podpora pri soočanju z življenjskimi spremembami - smrt, spolna zloraba, razveza in druge travmatske izkušnje</p>
+	<p>Mobing</p>
+	<p>Hitrejše doseganje stabilnosti in uspešnega delovanja v vsakdanjem življenju</p>
+</div>
+
+<div class="overlay-content supervizija">
+	<div class="zapri">zapri</div>
+	<h3>PSIHOTERAPIJA IN PSIHOLOŠKO SVETOVANJE</h3>
+
+	<p>Supervizija za strokovne delavce v vzgoji in izobraževanju – vrtci, šole, dijaški domovi, vzgojni zavodi…</p>
+	<p>Supervizija za zdravstvene ustanove in druga delovna okolja – javna uprava, nevladne organizacije, domovi za starešje…</p>
+	<p>Mentoriranje psihologov začetnikov</p>
+	<p>Svetovanje strokovnjakom ob aktualnih problemih</p>
+	<p>Koučing in kadrovsko svetovanje</p>
+</div>
+
+<!--<div class="body light smallist">-->
+<!--	<h2>OBJAVE IN STROKOVNA SODELOVANJA</h2>-->
+<!--	<div>-->
+<!--		<strong>Nekatera aktivna sodelovanja in objave</strong>-->
+<!--		<ol>-->
+<!--			<li><a target="_blank" href="http://www.telefon-samarijan.si/glasilo/Samarijan_2015_01_ZaSpletnoStran.pdf">Pelc, J., O superviziji. Samarijan. Letnik XIII, št.1 (2015), Ljubljana.</a>-->
+<!--			<li>Vilotič, A., Beznik, L., Pelc, J., Šolske ocene niso samo številke. Medicina-ljudje. Št.6. dec.-feb. (2015/2016).</li>-->
+<!--			<li><a target="_blank" href="http://www.eduvision.si/o-mednarodni-konferenci/program-konference">Pelc, J., Supervizija: pot osebnostne rasti do profesionalne moči. Mednarodna konferenca EDUvision, Ljubljana, (27. 11. 2014).</a></li>-->
+<!--			<li>Pelc, J., Klemenčič Rozman, M.,M:, Mramor, M., Verbnik Dobnikar, T., Resnična srečanja. V »Vzgoja v očeh psihoterapevta« - Pogledi in praksa različnih pristopov. Uredila Lojk, B., Evropski inštitut za realitetno terapijo. Ljubljana, 2014.</li>-->
+<!--			<li>Strokovno srečanje: Navihani Brain. Kino Dvor. Ljubljana, 2014.   https://http://www.youtube.com/watch?v=W4-Vx2BFRdE</li>-->
+<!--			<li><a target="_blank" href="http://www.zbornica-zveza.si/sl/strokovna-srecanja/otrok-druzina-bolezen-zdravstveni-delavci-skrb-za-druge-skrb-zase">Pelc, J., Mladostnik na prepihu. Strokovni posvet Otrok, družina, bolezen in zdravstveni delavci - skrb za druge in skrb. Ljubljana, 30. 5. 2014.</a></li>-->
+<!--			<li>Pelc, J., Žarek dobrote: članek na tematiko razumevanja in ravnanja v primeru nasilja, 2014:-->
+<!--				<ul>-->
+<!--					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2014/08/Zarek-september-2014-web.pdf">Zarek-september</a></li>-->
+<!--					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2014/10/Zarek-oktober-2014-web.pdf">Zarek-oktober</a></li>-->
+<!--					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2014/11/Zarek-november-2014-web.pdf">Zarek-november</a></li>-->
+<!--					<li><a target="_blank" href="http://www.karitas.si/wp-content/uploads/2012/02/Zarek-december-2014-web.pdf">Zarek-december</a></li>-->
+<!--				</ul>-->
+<!--			</li>-->
+<!--			<li><a target="_blank" href="http://www.solski-razgledi.com/forum2/read.php?1,8007">Pelc, J., Naj sanje živijo. Šolskih razgledi. (4. 10. 2013).</a></li>-->
+<!--			<li><a target="_blank" href="http://www.delo.si/druzba/zdravje/samo-ljubezen-ne-ozdravi-motenj-hranjenja.html">Pelc, J., Prijatelj, M.,  Samo ljubezen ne ozdravi motenj hranjenja. Delo. (8. 4. 2013).</a></li>-->
+<!--			<li>Pelc, J., Predgovor in dodatek k prevodu - Middleton, K., Smith, J., V Prvi koraki na poti k osvoboditvi. Ognjišče. Nova Gorica, 2012.</li>-->
+<!--			<li> <a target="_blank" href="http://www.klinicnapsihologija.si/klip_mozaik_v_zrcalu_narave">Pelc, J., Mozaik v zrcalu narave. Klip, št.8 (2012). Ljubljana.</a></li>-->
+<!--			<li><a target="_blank" href="http://www.ricnm.si/media/objave/dokumenti/2013/Zbornik_prispevkov_2012_celoten.pdf">Pelc, J., Prepoznavanje in preseganje težav na področju čustvovanja in motenj hranjenja – vloga strokovnih delavcev in pomen zaščitnih dejavnikov. V Več virov – več možnosti. Zavod za zdravstveno varstvo Ravne, Ministrstvo za zdravje. Slovenj Gradec, 2012.</a></li>-->
+<!--			<li>Pelc, J., Okrogla miza: Tesnoba in depresija sodobnega časa. 9. študijski dnevi SKZP - Tesnobnost, depresija in psihoterapija. Zreče, 2011.</li>-->
+<!--			<li>Pelc, J., Supervizija v vzgoji in izobraževanju. Mednarodni kongres psihologov Slovenije. Ljubljana, 2010.</li>-->
+<!--			<li>Pelc, J., Nebodigatreba.  8. študijski dnevi SKZP Psihoterapija otrok in mladostnikov. Rogla, 2010.</li>-->
+<!--			<li><a target="_blank" href="http://www.zdravjevsoli.si/index.php?option=com_content&view=category&layout=blog&id=49&Itemid=85">Pelc, J. in drugi, Modelne ure s področja alkohola in tobaka. IVZ Ljubljana, 2010.</a></li>-->
+<!--			<li>Pelc, J., Programi za otroke in mlade na področju čustvovaja – MKZ Rakitna. Konferenca o spolnem nasilju nad otroki. Tacen, 2010.</li>-->
+<!--			<li>Pelc, J., Mozaik soustvarjanja skozi čas. Zdrava šola. Knjižnica Osnovna šola Janka Kersnika Brdo Lukovica, Brdo, 2010.</li>-->
+<!--			<li><a target="_blank" href="http://www.mizs.gov.si/fileadmin/mizs.gov.si/pageuploads/podrocje/Strukturni_skladi/Gradiva/Gradivo_Strukturni_skladi_Usposabljanje_SDK_Brez_spopada.pdf">Pelc, J., Ravnanje strokovnih delavcev pri delu z otroki z manj sprejemljivimi oblikami vedenja. V Brez spopada: kultur, spolov, generacij. Urednica Tašner, V., Pedagoška fakulteta. Ljubljana, 2009.</a></li>-->
+<!--			<li><a target="_blank" href="http://www.ds-rs.si/sites/default/files/dokumenti/zbornik_otrok_v_vrtincu_odlocitev_institucij.pdf">Pelc, J., Ločitev, vpliv na šolajočega otroka. V Otrok v vrtincu odločitev institucij. Uredil Zoltan, J., Tratnik Volasko, M., Zupanec, N., Zbornik referatov in razprav. DS Republike Slovenije. Ljubljana, 2009/1.</a></li>-->
+<!--			<li>Pavšič, M., Pelc, Kurnik-Žugman, B., 9. Dnevi slovenskih psihologov. Psihološka obzorja. Letn. 18, št. 2 (2009), str. 109-119.</li>-->
+<!--			<li>Pavšič, M., Pelc, J., Cvetek, R., 8. dnevi psihologov. Psihološka obzorja. Letnik 17, št. 2 (2008), str. 121-129.</li>-->
+<!--			<li><a target="_blank" href="http://www.worldcat.org/identities/np-pelc,%20julija/">Pelc, J. »Štirioglate glave« in bolečine v ušesih. RTV SLO/MMC. Ljubljana, 8. 10. 2008.</a></li>-->
+<!--			<li>Pelc J., Od samopodobe k identiteti, V žarišču: Samopodoba in samospoštovanje, Vzgoja 32, (2006, VIII), str. 5-8.</li>-->
+<!--			<li><a target="_blank" href="http://www.nijz.si/sites/http://www.nijz.si/files/publikacije-datoteke/proste_roke_-_cista_pljuca_prirocnik.pdf">Pelc, J., Čibej Žagar, B., Vodenje skupin in komunikacijske spretnosti. V Bajt, M. Proste roke, čista pljuča. Priročnik za opuščanje kajenja za mladostnike. Priročnik za izvajalce. IVZ. Ljubljana, 2005.</a></li>-->
+<!--			<li>Pelc, J., Med avtonomnostjo in sodelovanjem, kritičnostjo in kritizerstvom. Razredni pouk, Letn. 8, št. 1 (2005), str. 27-29.</li>-->
+<!--			<li>Pelc, J., Vizija šole: izziv, kreativnost in steze sodelovanja. Zdrava šola, št. 1 (2005), str. 13-20.</li>-->
+<!--			<li><a target="_blank" href="http://www..arnes.si/~icerar/Kobolt_Metode%20in%20tehnike%20supervizije.pdf">Pelc, J., Evalvacija – pomen in metodična izpeljava v supervizijskem procesu. V Kobolt, A., Metode in tehnike supervizije. Pedagoška fakulteta. Ljubljana, 2004.</a></li>-->
+<!--			<li>Pelc, J., Pomen skupinskega sodelovanja pri razreševanju problemov rejencev. V Praper, P., editor. Moč: transfer in kontratransfer v psihoterapiji. Zbornik prispevkov 6. Bregantovi dnevi, (1998 okt. 15-18). Portorož. Združenje psihoterapevtov Slovenije. Ljubljana, 2004.</li>-->
+<!--			<li>Pelc, J., Vodenje supervizije v paru. Mednarodni kongres Izzazovi supervizije u jugoistočnoj Europi: hrcak.srce.hr/file/567, 4.- 6. ožuljak. Opatija, 2004.</li>-->
+<!--			<li>Pelc, J., Kaj lahko stori šola ob zlorabi?, V žarišču: Bolečina spolne zlorabe, Vzgoja 20, (2003, V), str. 10-12.</li>-->
+<!--			<li>Pelc, J., Med poletjem in supervizijo, Biti vzgojitelj, Vzgoja 18, (2003, V),  str. 29-31.</li>-->
+<!--			<li>Pelc, J., Alkohol in mladi, Vzgojna področja, Vzgoja 15, (2002, IV), str. 39-41.</li>-->
+<!--			<li>Pelc, J., Sodelovanje s starši, Razredništvo, Vzgoja 13, (2002, IV), str. 29-32.</li>-->
+<!--			<li><a target="_blank" href="http://www.zdravjevsoli.si/alkohol/ucitelji.htm">Pelc, J., Zelenjak, N., Mladi in alkohol. Priročnik za učitelje osnovnih šol. IVZ RS. Ljubljana, 2001.</a></li>-->
+<!--			<li>Pelc, J., Ko ostane samo še upanje. V T. Samec in V. Slodnjak (ur.), Psihične travme v otroštvu in adolescenci (str. 7 – 27). Ljubljana: Kolaborativni center Svetovne zdravstvene organizacije za duševno zdravje otrok pri Svetovalnem centru za otroke, mladostnike in starše: Inštitut za psihologijo osebnosti. 2001.</li>-->
+<!--			<li>Pelc, J., Bilten zdrave šole, Osnovna šola Janka Kersnika, Brdo pri Lukovici. Brdo, 2000.</li>-->
+<!--			<li>Pelc, J., Supervizija za strokovne delavce v vzgoji in izobraževanju, Didakta, letn. 10, št. 54-55 (september/oktober 2000), str. 9-10</li>-->
+<!--			<li>Pelc, J., O kontinuumu supervizije, svetovanja in terapije. Socialna pedagogika 1997/3 - kazalo in povzetki - zzsp.org http://www.zzsp.org/revija/sp1997_3.htm</li>-->
+<!--			<li>Pelc, J: Komunikacijski aspekti zdrave šole. Otrok in družina, 43, št. 5 (maj 1994), str. 13</li>-->
+<!--		</ol>-->
+<!--	</div>-->
+<!--	<div>-->
+<!--		<strong>Izobraževanja strokovnih delavcev:</strong>-->
+<!--		<ul>-->
+<!--			<li>Pelc, J., Dolgoletno izvajanje supervizijskih procesov, vodnje intervizij in individualnega koučinga za strokovne delavce v VIZ in zdravstvu, od 1998 -</li>-->
+<!--			<li>Pelc, J., Stres in travmatska izkušnja. Posredovanje v primeru naravnih nesreč in drugih travmatskih dogodkih. Prva psihosocilna pomoč. RK. Ljubljana, 2015.</li>-->
+<!--			<li>Pelc, J., Spolna zloraba otrok in ukrepanje strokovnega delavca CSD ob sumu spolne zlorabe – seminarji za strokovne delavce SCDS, VIZ, od 2010 –</li>-->
+<!--			<li>Pelc, J., Spolna zloraba  in obravnava otrok in mladostnikov v rejništvu – seminarji za rejnike, SCSD, od 2010 –</li>-->
+<!--			<li>Pelc, J., Moteči, nevidni in travmatizirani učenci, DKPS, od 2010 –</li>-->
+<!--			<li>Pelc, J., Poslušati ali svetovati? Ljubljana, 2014.</li>-->
+<!--			<li>Pelc, J., Otroci in mladostniki s čustvenimi težavami in motnjami hranjenja. Svetovalni delavci srednjih šol. Ljubljana, 2013.</li>-->
+<!--			<li>Pelc, J., Žorž, B., Vzpostavljanje kakovostnega stika in sodelovalnega odnosa z otroki, mladostniki, starši, sodelavci. MKZ Rakitna. Rakitna, 2011.</li>-->
+<!--			<li>Pelc, J., Stari starši: cvet ali trn v peti. MKZ Rakitna. Rakitna, 2011.</li>-->
+<!--			<li>Pelc, J., Geštalt terapija v svetovalnem procesu. Novi trendi v informiranju in svetovanju za mlade pred izbiro srednje šole. Center za poklicno informiranje. Ljubljana, 2011.</li>-->
+<!--			<li>Pelc, J., Verbnik Dobnikar, T., Maska v superviziji. Društvo za supervizijo. Kranjska Gora, 2010.</li>-->
+<!--			<li>Pelc, J., Vizija šole, pot do ljudi. OŠ Janka Kersnika Brdo in 50. mednarodni kongres učiteljev. Maribor, 2004.</li>-->
+<!--			<li>Pelc, J., Verbnik Dobnikar, T., Razrednik v osnovni šoli. OŠ Janka Kersnika Brdo pri Lukovici. Brdo, 2006.</li>-->
+<!--			<li>Pelc, J., Tišina. Študijski dnevi Društva za supervizijo. Gozd Martuljek, 2004.</li>-->
+<!--		</ul>-->
+<!--	</div>-->
+
+<!--	<div>-->
+<!--		<strong>Med drugim tudi:</strong>-->
+<!--		<ul>-->
+<!--			<li>Kakovostna komunikacija v zdravstvu med strokovnim delavcem in pacientom</li>-->
+<!--			<li>Skrb zase, preprečevanje in uravnavanje stresnih situacij</li>-->
+<!--			<li>Razvijanje pozitivne samopodobe in občutka lastne vrednosti</li>-->
+<!--			<li>Krepitev otrokove osebnosti</li>-->
+<!--			<li>Vloga, naloga in položaj svetovalnega delavca</li>-->
+<!--			<li>Kakovostno sodelovanje šole s starši</li>-->
+<!--			<li>Učinkovito postavljanje meja</li>-->
+<!--			<li>Veščine sporazumevanja in asertivnosti</li>-->
+<!--			<li>Na vrtiljaku čustev – prepoznavanje in (samo)uravnavanje</li>-->
+<!--			<li>Poslušati ali svetovati</li>-->
+<!--			<li>Obdobje mladostništva</li>-->
+<!--			<li>Razvoj tima</li>-->
+<!--			<li>Družina, partnerstvo, starševstvo…</li>-->
+<!--		</ul>-->
+<!--	</div>-->
+
+<!--	<div>-->
+<!--		<strong>Prisotnost v medijih:</strong>-->
+<!--		<ul>-->
+<!--			<li>Vrtačnik, K., Pelc, J., Naša prepričanja nas sooblikujejo, predsodki pa razmejujejo. Ceh. Letnik 5, (2015), št.11., str.4-7</li>-->
+<!--			<li>Vrtačnik, K., Pelc, J., Ličenje za volanom je smrtno nevarno. Nedelo. (16. 11. 2011).</li>-->
+<!--			<li>Vrtačnik, K., Pelc, J., Razumeti stiske, žalost, strahove otrok. Revija Ona. (1. 6. 2009).</li>-->
+<!--			<li>Pelc, J., Čakš, A., Otrok v stiski ne potrebuje pridige, ampak pomoč: pred začetkom pouka. Delo, leto 49, št. 201 (1. sep. 2007).</li>-->
+<!--			<li><a target="_blank" href="http://www.rtvslo.si/turbulenca/novica/209">Življenje z otrokom s posebnimi potrebami, TV LJubljana, 22. 1. 2014.</a></li>-->
+<!--			<li>-->
+<!--				Radio Prvi - leto 2015-->
+<!--				<ul>-->
+<!--					<li>Svetovalni servis: Izbira obšolskih dejavnosti in prosti čas šolarjev, 7. 9. 2015</li>-->
+<!--					<li>Prvi na obisku – Center varne vožnje Vransko, 4. 6. 2015</li>-->
+<!--					<li>O edincih in bratih v nedeljskem jutru, 26. 5. 2015</li>-->
+<!--					<li>Stari starši: oddaja Med štirimi stenami, 23. 3. 2015</li>-->
+<!--				</ul>-->
+<!--			</li>-->
+<!--		</ul>-->
+<!--	</div>-->
+<!--</div>-->
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
