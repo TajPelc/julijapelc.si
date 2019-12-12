@@ -11,7 +11,13 @@
 		$(function() {
 			$('#dejavnosti li').click(function (event) {
 				$('.overlay').fadeIn();
-				$("." + $(this).data('type')).fadeIn();
+				var element = $("." + $(this).data('type'));
+
+				element.fadeIn();
+
+				$([document.documentElement, document.body]).animate({
+					scrollTop: 0
+				}, 500);
 			});
 
 			$('.zapri, .overlay').click(function (event) {
@@ -303,15 +309,19 @@
 		.overlay-content {
 			display: none;
 			position: absolute;
-			padding: 60px 20px 20px 20px;
-			width: 300px;
-			margin: auto auto;
-			z-index: 1000;
+			top: 20px;
 			left: 0;
 			right: 0;
-			bottom: 20px;
+			padding: 60px 20px 20px 20px;
+			width: 300px;
+			z-index: 1000;
+			margin: auto;
 			background: #fff;
 			box-shadow: #755859 1px 1px 4px;
+			-webkit-animation-name: animatetop;
+			-webkit-animation-duration: 0.4s;
+			animation-name: animatetop;
+			animation-duration: 0.4s
 		}
 
 		.zapri {
